@@ -1,0 +1,5 @@
+<nav>
+    <% if instructor_signed_in? %>
+      <li><%= link_to 'sign out as instructor', destroy_instructor_session_path, method: :delete %></li>
+    <% end %>
+</nav>

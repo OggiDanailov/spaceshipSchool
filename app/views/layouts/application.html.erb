@@ -8,6 +8,11 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+   <%= render :partial => "layouts/partials/instructor" %>
+   <%= render :partial => "layouts/partials/student" %>
+   <%= render :partial => "layouts/partials/admin" %>
+   <%= render :partial => "layouts/partials/home" %>
+
 
   <body>
     <%= yield %>

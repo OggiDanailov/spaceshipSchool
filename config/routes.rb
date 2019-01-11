@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
  
-  	root "courses#index"
+  	root "welcome#home"
+    get "/about" => "welcome#about"
 
   	resources :articles do 
   		resources :comments
