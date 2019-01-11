@@ -1,21 +1,56 @@
     <% if !student_signed_in? && !admin_signed_in? && !instructor_signed_in? %>
 
-<div class="wrapper">
-    <ul class="navbar">
-      <li class="active"><%= link_to "Home", root_path %></li>
-      <li><%= link_to "About", about_path %></li>
-      <li><%= link_to "Contact", about_path %></li>
-      <li class="dropdown">
-        <a href="#" class="dropbtn">Students</a>
-        <div class="dropdown-content">
-          <li class='invisible'><%= link_to "Sign up", new_student_registration_path  %></li>
-          <li class='invisible'><%= link_to "Sign in", new_student_session_path  %></li>
-        </div>
-      </li>
-    </ul>
+<section class="navigation">
+  <div class="nav-container">
+    <div class="brand">
+      <a href="#!">Logo</a>
+    </div>
+    <nav>
+      <div class="nav-mobile">
+        <a id="nav-toggle" href="#!"><span></span></a>
+      </div>
+      <ul class="nav-list">
+        <li>
+          <%= link_to "Home", root_path %>
+        </li>
+        <li>
+          <%= link_to "About", about_path %>
+        </li>
+        <li>
+          <%= link_to "Contact", about_path %>
+        </li>
 
-   <% end %>
+        <li>
+          <a href="#!">Instructors</a>
+          <ul class="nav-dropdown">
+            <li>
+              <%= link_to "Sign in", new_instructor_session_path %>
+            </li>
+            <li>
+              <%= link_to "Sign up", new_instructor_registration_path %>
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="#!">Students</a>
+          <ul class="nav-dropdown">
+            <li>
+              <%= link_to "Sign in", new_student_session_path %>
+            </li>
+            <li>
+              <%= link_to "Sign up", new_student_registration_path %>
+            </li>
+          </ul>
+        </li>
+
+      </ul>
+    </nav>
+  </div>
+</section>
 
 
-     
 
+
+
+<% end %>

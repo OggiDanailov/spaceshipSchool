@@ -1,5 +1,23 @@
-<nav>
     <% if instructor_signed_in? %>
-      <li><%= link_to 'sign out as instructor', destroy_instructor_session_path, method: :delete %></li>
+	<nav class="topnav" id="myTopnav">
+	  <%= link_to 'Home', root_path, :class => 'active' %>
+	  <%= link_to 'About', about_path %>
+	  <%= link_to 'Contact', about_path %>	
+	  <%= link_to 'Courses', courses_path %>
+	  <%= link_to 'Cohorts', cohorts_path %>  
+	  <div class="dropdown">
+	    <button class="dropbtn">Hello <%=current_instructor.fname %>
+	    </button>
+	    <div class="dropdown-content">
+	      <%= link_to 'My Profile', instructor_path(current_instructor) %>
+	      <%= link_to 'sign out as instructor', destroy_instructor_session_path, method: :delete %>
+	    </div>
+	  </div> 
+	  <a href="javascript:void(0);" style="font-size: 25px;" class="icon" onclick="myFunction()">&#9776;</a>	
     <% end %>
 </nav>
+
+
+
+
+

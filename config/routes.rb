@@ -1,13 +1,17 @@
 Rails.application.routes.draw do
  
+  
   	root "welcome#home"
     get "/about" => "welcome#about"
+    get "/contact" => "welcome#contact"
+    get "/instructor/:id" => "instructors#show", :as => "instructor"
 
   	resources :articles do 
   		resources :comments
   	end
 
   	resources :courses
+  	resources :cohorts
 
 # the three devise roles
   devise_for :admins, path: "admin"
