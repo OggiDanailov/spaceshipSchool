@@ -1,9 +1,25 @@
-<nav>
-    <% if admin_signed_in? %>
-      <li><%= link_to 'sign out as instructor', destroy_admin_session_path, method: :delete %></li>
+
+<% if admin_signed_in? %>
+    <nav class="topnav" id="myTopnav">
+	  <%= link_to 'Home', root_path, :class => 'active' %>
+	  <%= link_to 'About', about_path %>
+	  <%= link_to 'Contact', about_path %>	
+	  <%= link_to 'Courses', courses_path %>
+	  <%= link_to 'Cohorts', cohorts_path %>  
+	  <%= link_to 'Aricles', articles_path %>  
+	  <div class="dropdown">
+	    <button class="dropbtn">Hello <%=current_admin.email %>
+	    </button>
+	    <div class="dropdown-content">
+	      <%= link_to "New Course", new_course_path %>
+	      <%= link_to 'sign out as admin', destroy_admin_session_path, method: :delete %>
+	    </div>
+	  </div> 
+	  <a href="javascript:void(0);" style="font-size: 25px;" class="icon" onclick="myFunction()">&#9776;</a>	
+	</nav>
 		  
-    <% end %>
-</nav>
+<% end %>
+
 
 
 

@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
- 
-  
+   
   	root "welcome#home"
     get "/about" => "welcome#about"
     get "/contact" => "welcome#contact"
     get "/instructor/:id" => "instructors#show", :as => "instructor"
+    get "/student/:id" => "student#show", :as => "student"
 
   	resources :articles do 
   		resources :comments
