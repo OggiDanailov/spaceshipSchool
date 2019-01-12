@@ -1,0 +1,73 @@
+$field-color: #fafafa;
+$button-color:  #d5fdd5;
+
+.signing-wrapper {
+	border: 2px solid lightgrey;
+	margin: 20px auto;
+	width: 35%;
+	padding: 20px 0 40px 0;
+}
+
+.signing-title {
+	text-align: center;
+	margin: 20px 0;
+}
+
+.field {	
+	text-align: center;
+	margin: 20px 0;
+}
+.field input {
+	background-color: $field-color;
+	padding: 3px;
+}
+
+.field input, .submit-button, .submit-button-link {
+	width: 80%;
+	height: 30px;
+	margin: 0 auto;
+	font-size: 17px;
+}
+
+.submit-button, .submit-button-link {
+	display: block;
+	background-color: $button-color;
+	border-radius: 1px;
+	text-align: center;
+}
+
+.submit-button-link{
+	border: 1px solid lightgrey;
+	margin-bottom: 20px;
+}
+.submit-button-link a {
+	font-size: 19px;
+	text-decoration: none;
+	color: black;
+	line-height: 30px;
+	text-align: center;	
+}
+
+.checkbox {
+	// border: 2px solid red;
+	display: inline-block;
+}
+
+.a {
+	width: 10%;
+}
+
+.b {
+	width: 90%;
+}
+
+
+
+
+
+
+
+
+
+
+
