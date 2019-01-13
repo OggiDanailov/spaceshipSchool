@@ -62,6 +62,22 @@ $button-color:  #d5fdd5;
 }
 
 
+.horizontal-line {
+	width: 90%;
+	margin: 30px auto;
+	height: 3px;
+	background-color: black;
+}
+
+.back-link {
+	padding: 10px;
+}
+
+@media screen and (max-width: 768px) {
+	.signing-wrapper {
+		width: 80%;
+	}
+}
 
 
 
