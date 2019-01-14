@@ -1,7 +1,7 @@
 $field-color: #fafafa;
 $button-color:  #d5fdd5;
 
-.signing-wrapper {
+.signing-wrapper, .delete-form {
 	border: 2px solid lightgrey;
 	margin: 20px auto;
 	width: 40%;
@@ -66,7 +66,7 @@ $button-color:  #d5fdd5;
 	width: 90%;
 	margin: 30px auto;
 	height: 3px;
-	background-color: black;
+	background-color: teal;
 }
 
 .back-link {
@@ -76,6 +76,12 @@ $button-color:  #d5fdd5;
 .cktext-form {
 	width: 90%;
 	margin: 10px auto;
+}
+
+.delete-form a {
+	color: red;
+	text-decoration: none;
+	line-height: 30px;
 }
 
 @media screen and (max-width: 768px) {

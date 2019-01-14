@@ -3,8 +3,9 @@
 		<h2 class='listing-title'>SPACESHIP SCHOOL DEPARTMENTS: </h2>
 
 		<% @departments.each do |d| %>
-		<div class='listing-name'><b><%= d.name %></b></div>
+		<div class='listing-name'><b><a href="/departments/<%= d.id %>"><%= d.name %></b></a></div>
 		<div class='listing-text'><%= raw(d.description.first(350)) %></div>
+		<div class='horizontal-line'></div>
 		<% end %>
 	</div>
 </div>

@@ -1,2 +1,8 @@
-<h1>Departments#show</h1>
-<p>Find me in app/views/departments/show.html.erb</p>
+<h2 class='listing-title'><a href="/departments/<%= @department.id%>/edit">Department of <%= @department.name %></a></h2>
+<div class='wrapper'>
+	<div class='left'>
+		<div class='listing-text'><%= raw(@department.description) %></div>
+	</div>
+
+	<div class="right"></div>
+</div>

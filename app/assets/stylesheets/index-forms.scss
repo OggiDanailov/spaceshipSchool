@@ -10,12 +10,22 @@
 	text-align: center;
 	color: salmon;
 }
+.listing-title a {
+	color: salmon;
+	text-decoration: none;
+}
 
 .listing-name {
 	padding: 20px 0;
 	// border: 2px solid blue;
 	text-align: center;
 	display: block;
+
+}
+.listing-name a {
+	text-decoration: none;
+	color: black;
+	cursor: pointer;
 }
 
 .listing-text {

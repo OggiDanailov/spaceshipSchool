@@ -22,6 +22,27 @@ class DepartmentsController < ApplicationController
     @department = Department.find(params[:id])
   end
 
+  def edit 
+    @department = Department.find(params[:id])
+  end
+
+  def update
+    dep = Department.find(params[:id])
+    if dep.update(departments_params)
+      redirect_to "/departments/#{dep.id}"
+    else 
+      render "/departments/#{dep.id}/edit"
+    end  
+  end
+
+  def destroy
+    department = Department.find(params[:id])
+    department.destroy
+    redirect_to "/departments"
+  end
+
+
+
 
   private
 
