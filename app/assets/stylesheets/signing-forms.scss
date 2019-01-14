@@ -4,7 +4,7 @@ $button-color:  #d5fdd5;
 .signing-wrapper {
 	border: 2px solid lightgrey;
 	margin: 20px auto;
-	width: 35%;
+	width: 40%;
 	padding: 20px 0 40px 0;
 }
 
@@ -71,6 +71,11 @@ $button-color:  #d5fdd5;
 
 .back-link {
 	padding: 10px;
+}
+
+.cktext-form {
+	width: 90%;
+	margin: 10px auto;
 }
 
 @media screen and (max-width: 768px) {

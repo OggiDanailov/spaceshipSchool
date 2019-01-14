@@ -1,0 +1,10 @@
+<div class='wrapper'>
+	<div class='left'>
+		<h2 class='listing-title'>SPACESHIP SCHOOL DEPARTMENTS: </h2>
+
+		<% @departments.each do |d| %>
+		<div class='listing-name'><b><%= d.name %></b></div>
+		<div class='listing-text'><%= raw(d.description.first(350)) %></div>
+		<% end %>
+	</div>
+</div>

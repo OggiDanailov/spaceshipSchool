@@ -1,0 +1,16 @@
+<%= form_for @department do |d| %>
+<div class='signing-wrapper'>
+	<h3 class='signing-title'>Create new Department</h3>
+	<div class="field">Department's Name: <%= d.text_field :name %></div>
+	<div class="field cktext-form">Description: <%= d.cktext_area :description, rows: 10 %></div>
+
+	<div class='actions'>
+		<%= d.submit "Create Department", :class => 'submit-button' %>			
+	</div>	
+</div>
+<% end %>
+
+
+
+
+
