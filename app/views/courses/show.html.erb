@@ -1,1 +1,13 @@
-This is the show page
+<h2 class='listing-title'>
+	<a href="/departments/<%= params[:department_id] %>/courses/<%= @course.id %>/edit">Course of <%= @course.title %></a>
+</h2>
+<div class='wrapper'>
+	<div class='left'>
+		<div class="listing-text"><b>Course content:</b><br> 
+			<%= raw(@course.content)%></div>
+		<div class='listing-text'><b>Description:</b><br> <%= @course.description %></div>
+		<div class='horizontal-line'></div>
+	</div>
+
+	<div class='right'></div>
+</div>

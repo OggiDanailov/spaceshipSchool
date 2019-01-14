@@ -1,8 +1,10 @@
-This is the new form for a course!!
+<h3 class='signing-title'>Create a new course</h3>
 
 <%= form_for [@department, @course] do |f| %>
-	Title: <%= f.text_field :title %>
-	Content: <%= f.text_field :content %>
-	Description: <%= f.text_field :description %>
-	<%= f.submit %>
+<div class="signing-wrapper">
+	Title: <div class="field"><%= f.text_field :title %></div>
+	Content: <div class="field cktext-form"> <%= f.cktext_area :content, rows: 10 %></div>
+	Description: <div class='field'><%= f.text_field :description %></div>
+	<%= f.submit, :class => "submit-button" %>
+</div>
 <% end %>
