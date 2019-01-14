@@ -2,7 +2,21 @@
 <div class='wrapper'>
 	<div class='left'>
 		<div class='listing-text'><%= raw(@department.description) %></div>
+		<div class='horizontal-line'></div>
 	</div>
 
-	<div class="right"></div>
+	<div class="right">
+		<% if current_admin %>
+			<%= link_to "create new course", new_department_course_path(@department) %>
+		<% end %>
+		<div class='horizontal-line'></div>
+
+		<h3 class='listing-title'>Courses with this Department</h3>
+		<% @department.courses.each do |c| %>
+			<div class='listing-name'><a href="/departments/<%=@department.id %>/courses/<%= c.id%>"><b><%= c.title %></b></a></div>
+			<div class='listing-text'>Content: <%= truncate(c.content, :length => 100) %></div>
+			<div class='listing-text'> Description: <%= c.description  %></div>
+			<div class='horizontal-line'></div>
+		<% end %>
+	</div>
 </div>

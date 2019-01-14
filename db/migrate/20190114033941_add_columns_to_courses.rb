@@ -4,6 +4,5 @@ class AddColumnsToCourses < ActiveRecord::Migration[5.2]
   	add_column :courses, :content, :string
   	add_column :courses, :description, :string
   	add_column :courses, :department_id, :integer
-
   end
 end

@@ -1,0 +1,8 @@
+This is the new form for a course!!
+
+<%= form_for [@department, @course] do |f| %>
+	Title: <%= f.text_field :title %>
+	Content: <%= f.text_field :content %>
+	Description: <%= f.text_field :description %>
+	<%= f.submit %>
+<% end %>

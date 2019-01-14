@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   	resources :departments do
       resources :courses
     end
+
+    get "/courses" => "courses#all_courses", :as => "courses"
   	resources :cohorts
 
 # the three devise roles
