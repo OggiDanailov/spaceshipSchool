@@ -1,8 +1,15 @@
-This is new Spaceschool project
 
-<% @courses.each do |c| %>
-	<div><%= c.title %></div>
-	<div><%= c.content %></div>
-	<div><%= c.description %></div>
-	<div><%= c.department.name %></div>
-<% end %>
+<div class='wrapper'>
+		<div class='left'>
+		<h2 class='listing-title'>SPACESHIP SCHOOL COURSES: </h2>
+	<% @courses.each do |c| %>
+		<div class='listing-name'><a href="/departments/<%= c.department.id %>/courses/<%= c.id %>"><%= c.title %></a></div>
+		<div class='field'><b>Content: </b><%= c.content %></div>
+		<div class='field'><b>Description: </b><%= c.description %></div>
+		<div class='field'><b>Department: </b><%= c.department.name %></div>
+		<div class="horizontal-line"></div>
+	<% end %>
+		</div>
+
+		<div class='right'></div>
+</div>
