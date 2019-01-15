@@ -12,8 +12,8 @@
 	</div>
 
 	<div class='right'>
+		<% if current_instructor == @instructor %>
 		<div class='signing-title'><h3>Create new cohort: </h3></div>
-		<% if current_instructor %>
 		<%= form_for @cohort do |f| %>
 	 <%#= f.cktext_area :name, rows: 10 %>
 		<div class='signing-wrapper singing-wrapper-new-cohort'>

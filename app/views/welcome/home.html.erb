@@ -1,2 +1,19 @@
-<h1>Welcome#home</h1>
-<p>Find me in app/views/welcome/home.html.erb</p>
+<h1 class='listing-title'>WELCOME TO SPACESHIP SCHOOL!</h1>
+
+
+<div class='wrapper-home'>
+	<div class='left'>
+		<div class='listing-title'>Our Instructors</div>
+		<% @instructors.each do |i| %>
+			<div class='listing-name'><a href="/instructor/<%=i.id %>"><%= i.fname%> <%= i.lname%></a></div>
+			<div class='listing-name'><%= i.email %></div>
+				<% i.cohorts.each do |c| %>
+				Cohorts:
+			<div class='listing-name'><a href="/cohorts/<%= c.id%>"><%= c.name %></a></div>
+
+			<div class='listing-name'>Course:<a href="/departments/<%= c.course.department.id%>/courses/<%= c.course.id%>"> <%= c.course.title %></a></div>
+				<% end %>
+			<div class='horizontal-line'></div>
+		<% end %>
+	</div>
+</div>

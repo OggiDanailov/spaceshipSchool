@@ -1,0 +1,26 @@
+<div class='signing-title'><h3>Update <%= @cohort.name %> </h3></div>
+	<% if current_instructor %>
+		<%= form_for @cohort do |f| %>
+	 <%#= f.cktext_area :name, rows: 10 %>
+	 <div class='signing-wrapper'>
+		 <div class='field'><%= f.text_field :name, :placeholder => "cohort's name" %></div>
+		 <div class='field'><%= f.text_field :credits, :placeholder => "credits" %></div>
+		 <div class='field'><%= f.text_area :comment, :placeholder => "comments/description" %></div>
+		<div class='field'>Course:<br>
+		 <%= f.select :course_id, options_from_collection_for_select(Course.all, "id", "title") %>
+		</div>
+
+		<div class='field '>Starting date:<br>
+		 <%= f.datetime_field :starting_date%></div>
+		<div class='field '>Last date:<br>
+		 <%= f.datetime_field :ending_date %></div>
+
+		<%= f.submit "Create cohort",  :class => 'submit-button' %>
+	</div>
+		<% end %>
+	<% end %>
+
+	<div class='delete-form'>
+	<%= link_to "Delete #{@cohort.name} ", cohort_path(@cohort), method: :delete, data: {confirm: "Are you sure you want to delete this cohort?"}, :class => 'submit-button'  %>
+	</div>
+
