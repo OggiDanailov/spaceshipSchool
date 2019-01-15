@@ -4,7 +4,8 @@ Rails.application.routes.draw do
     get "/about" => "welcome#about"
     get "/contact" => "welcome#contact"
     get "/instructor/:id" => "instructors#show", :as => "instructor"
-    get "/student/:id" => "student#show", :as => "student"
+    get "/student/:id" => "students#show", :as => "student"
+    post "/assign" => "students#assign"
     get "/courses" => "courses#all_courses", :as => "courses"
 
     resources :articles do 
