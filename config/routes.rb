@@ -1,23 +1,20 @@
 Rails.application.routes.draw do
-   
-  get 'departments/index'
-  get 'departments/new'
-  get 'departments/show'
+ 
   	root "welcome#home"
     get "/about" => "welcome#about"
     get "/contact" => "welcome#contact"
     get "/instructor/:id" => "instructors#show", :as => "instructor"
     get "/student/:id" => "student#show", :as => "student"
+    get "/courses" => "courses#all_courses", :as => "courses"
 
-  	resources :articles do 
-  		resources :comments
-  	end
+    resources :articles do 
+      resources :comments
+    end
 
-  	resources :departments do
+    resources :departments do
       resources :courses
     end
 
-    get "/courses" => "courses#all_courses", :as => "courses"
   	resources :cohorts
 
 # the three devise roles

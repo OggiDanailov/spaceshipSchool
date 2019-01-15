@@ -1,0 +1,17 @@
+<h2 class='listing-title'><a href="/cohorts/<%= @cohort.id%>/edit">  <%= @cohort.name %></a></h2>
+<div class='wrapper'>
+	<div class='left'>
+		<div class='listing-name'>Note: <%= @cohort.comment %></div>
+		<div class='listing-name'>Credits: <%= @cohort.credits %></div>
+		<div class='listing-name'>Course: <%= @cohort.course.title %></div>
+				<% course = @cohort.course %>
+		<div class='listing-name'>Department: <%= course.department.name %></div>
+		<div class='listing-name'>Dates: <%= @cohort.starting_date %> - <%= @cohort.ending_date %></div>
+	</div>
+
+	<div class='right'></div>
+
+
+
+
+</div>
