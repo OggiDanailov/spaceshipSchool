@@ -1,11 +1,6 @@
 class ExamsController < ApplicationController
 
-	 def assign
-		student = Student.find(current_student.id)
-		cohort = Cohort.find(params[:cohortid])
-		exam = Exam.new
-		redirect_to "/student/#{student.id}"
-	end
+	
 
 
 

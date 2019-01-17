@@ -5,8 +5,9 @@ Rails.application.routes.draw do
     get "/contact" => "welcome#contact"
     get "/instructor/:id" => "instructors#show", :as => "instructor"
     get "/student/:id" => "students#show", :as => "student"
-    post "/assign" => "students#assign"
     get "/courses" => "courses#all_courses", :as => "courses"
+    post "/assign" => "students#assign"
+    delete "/remove_cohort" => "students#remove_cohort"
 
     resources :articles do 
       resources :comments
