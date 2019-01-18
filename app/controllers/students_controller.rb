@@ -10,8 +10,11 @@ class StudentsController < ApplicationController
   def assign
 		student = Student.find(current_student.id)
 		cohort = Cohort.find(params[:cohortid])
-		student.cohorts << cohort
-		redirect_to "/student/#{student.id}"
+		if cohort.id > 45
+			student.cohorts << cohort
+		else
+			redirect_to "/student/#{student.id}"
+		end
 	end
 
 

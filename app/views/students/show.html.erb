@@ -1,8 +1,19 @@
-<h1>Students#show</h1>
-<p>Find me in app/views/students/show.html.erb</p>
+<h2>Hello <%= @student.fname %></h2>
 
-<%= @student.fname %>
+<div class='my-cohorts'>
+	<% @student.cohorts.each do |c| %>
+		<div><%= c.name %></div>
+		<div><%= c.course.title %></div>
+		<div><%= c.course.department.name %></div>
+	<% end %>
+</div>
+
+
 <hr>
+<hr>
+<hr>
+<hr>
+
 <% @cohorts.each do |c| %>
 
 <div class='cohorts'>
@@ -13,9 +24,10 @@
 
 
 	<%= form_for @exam, url: { action: 'assign', controller: 'students' }, html: {method: 'post'} do |r| %>
-    <%= hidden_field_tag "id", @student.id %>    
-    <%= hidden_field_tag "cohortid", c.id %>
-	<%= r.submit "Add cohort" %>
+	    <%= hidden_field_tag "id", @student.id %>    
+	    <%= hidden_field_tag "cohortid", c.id %>
+		<%= r.submit "Add cohort" %>
 	<% end %>
+
 <% end %>
 </div>
