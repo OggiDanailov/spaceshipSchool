@@ -9,13 +9,19 @@ class StudentsController < ApplicationController
 
   def assign
 		student = Student.find(current_student.id)
-		cohort = Cohort.find(params[:cohortid])
-		if cohort.id > 45
-			student.cohorts << cohort
+		cohort = Cohort.find(params[:cohortid])	
+		existing_cohort = student.cohorts.find_by(id: cohort.id)
+		if existing_cohort != nil && existing_cohort.id == cohort.id
+			puts 'you alreayd have this one'
 		else
-			redirect_to "/student/#{student.id}"
+			student.cohorts << cohort
+			redirect_to "/student/#{student.id}"		
 		end
 	end
+
+	
+
+
 
 
 	def remove_cohort
