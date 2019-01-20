@@ -17,7 +17,9 @@ Rails.application.routes.draw do
       resources :courses
     end
 
-  	resources :cohorts
+  	resources :cohorts do 
+      resources :exams
+    end
 
 # the three devise roles
   devise_for :admins, path: "admin"
