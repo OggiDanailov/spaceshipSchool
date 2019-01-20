@@ -1,33 +1,54 @@
-<h2>Hello <%= @student.fname %></h2>
+<h2 class='listing-title'>Hello <%= @student.fname %></h2>
 
-<div class='my-cohorts'>
-	<% @student.cohorts.each do |c| %>
-		<div><%= c.name %></div>
-		<div><%= c.course.title %></div>
-		<div><%= c.course.department.name %></div>
-	<% end %>
+<div class='wrapper'>
+	<div class='left'>
+		<h3 class="listing-title">My current Cohorts</h3>
+		<% @student.cohorts.each do |c| %>
+			<table>
+			<tr>
+				<th>Name of Cohort</th>
+				<th>Course title</th>
+				<th>Department</th>
+				<th>Instructor</th>
+				<th>Grade</th>
+			</tr>
+			<td><%= c.name %></td>
+			<td><%= c.course.title %></td>
+			<td><%= c.course.department.name %></td>
+			<td><%= c.instructor.lname %></td>
+			<td>Not Graded</td>
+			<%= form_for @student, url: {action: "remove_cohort", controller: 'students'}, html: {method: 'delete'} do |f| %>
+				<%= hidden_field_tag :cohort_id, @student.cohorts.ids %>
+					<td><%= f.submit "Remove Cohort" %></td>
+			<% end %>
+				
+			
+			<div class='horizontal-line'></div>
+			</table>
+		<% end %>
+	</div>
+	<div class='right'>
+		<h3 class="listing-title">My current grades: </h3>
+	</div>
 </div>
 
+<div class='horizontal-line'></div>
 
-<hr>
-<hr>
-<hr>
-<hr>
-
-<% @cohorts.each do |c| %>
-
-<div class='cohorts'>
-    <div class='main-list'>Cohort name: <%= c.name  %></div>
-    <div class='main-list'>Course name: <%= c.course.title %></div>
-    <div class='main-list'>Instructor: <%=c.instructor.lname %></div>
-    <div class='main-list'>Dates: <%=c.starting_date %> - <%= c.ending_date %></div>
+<div class='cohorts-wrapper'>
+	<% @cohorts.each do |c| %>
+	<div class='cohorts'>
+	    <div class='main-list'><b>Cohort name:</b> <%= c.name  %></div>
+	    <div class='main-list'><b>Course name:</b> <%= c.course.title %></div>
+	    <div class='main-list'><b>Instructor:</b> <%=c.instructor.lname %></div>
+	    <div class='main-list'><b>Dates:</b> <%=c.starting_date.to_formatted_s(:long) %> - <%= c.ending_date.to_formatted_s(:long) %></div>
 
 
-	<%= form_for @exam, url: { action: 'assign', controller: 'students' }, html: {method: 'post'} do |r| %>
-	    <%= hidden_field_tag "id", @student.id %>    
-	    <%= hidden_field_tag "cohortid", c.id %>
-		<%= r.submit "Add cohort" %>
+		<%= form_for @student, url: { action: 'assign', controller: 'students' }, html: {method: 'post'} do |r| %>
+		    <%= hidden_field_tag "id", @student.id %>    
+		    <%= hidden_field_tag "cohortid", c.id %>
+		    <br>
+			<div><%= r.submit "Add cohort", :class => 'submit-button' %></div>
+		<% end %>
+	</div>
 	<% end %>
-
-<% end %>
 </div>
