@@ -19,7 +19,7 @@
 			<td>Not Graded</td>
 			<%= form_for @student, url: {action: "remove_cohort", controller: 'students'}, html: {method: 'delete'} do |f| %>
 				<%= hidden_field_tag :cohort_id, @student.cohorts.ids %>
-					<td><%= f.submit "Remove Cohort" %></td>
+					<td><%= f.submit "Remove", :class => "submit-button" %></td>
 			<% end %>
 				
 			
