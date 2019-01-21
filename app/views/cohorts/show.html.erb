@@ -18,6 +18,8 @@
 </div>
 <% if @cohort.instructor.lname == current_instructor.lname %>
 	<a href="/cohorts/<%= @cohort.id%>/edit">Edit</a>
+	<br>
+	<a href="/cohorts/<%= @cohort.id%>/exams/new">Grade Cohort</a>
 <% end %>
 
 

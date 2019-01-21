@@ -1,0 +1,40 @@
+<h2 class='listing-title'>Grade cohort: <b><%=@cohort.name %></b></h2>
+<h3 class='listing-name'>Course: <%= @cohort.course.title %></h3>
+<h3 class='listing-name'>Department: <%= @cohort.course.department.name %></h3>
+<h3 class='listing-name'>Instructor: <%=@cohort.instructor.lname %></h3>
+<div class='wrapper-grading'>
+	
+		<h3 class='listing-name'>Current students:</h3>
+
+	<% @cohort.students.each do |s| %>
+	<table>
+		<tr>
+			<th>Student's name</th>
+			<th>Grade</th>
+			<th>Comment</th>
+			<th>Grading</th>
+			<th>Graded</th>
+			<th>Comment</th>
+		</tr>
+			<td><%= s.fname %> <%= s.lname %></td>
+				<%= form_for [@cohort, @exam] do |f| %>
+			<td>Grade: <%= f.select :grade, collection_select: @grades  %></td>
+			<td><%= f.text_area :comment %></td>
+				<%= hidden_field_tag :student_id, s.id %>
+			<td><%= f.submit "Grade" %></td>
+				<% end %>
+			
+		<% @exams.each do |e| %>
+			<% if e.student_id == s.id %>
+				<td><%= e.grade %></td>
+				<td><%= e.comment %></td>
+			<% end %>
+		<% end %>
+	<% end %>
+	
+	</table>
+</div>	
+<br>
+<br>
+<br>
+
