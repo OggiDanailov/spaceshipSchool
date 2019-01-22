@@ -6,35 +6,33 @@
 	
 		<h3 class='listing-name'>Current students:</h3>
 
-	<% @cohort.students.each do |s| %>
-	<table>
-		<tr>
-			<th>Student's name</th>
-			<th>Grade</th>
-			<th>Comment</th>
-			<th>Grading</th>
-			<th>Graded</th>
-			<th>Comment</th>
-		</tr>
-			<td><%= s.fname %> <%= s.lname %></td>
-				<%= form_for [@cohort, @exam] do |f| %>
-			<td>Grade: <%= f.select :grade, collection_select: @grades  %></td>
-			<td><%= f.text_area :comment %></td>
-				<%= hidden_field_tag :student_id, s.id %>
-			<td><%= f.submit "Grade" %></td>
-				<% end %>
-			
-		<% @exams.each do |e| %>
+<div class='grading-table'>
+
+	<div class='grading-table-left'>
+		<div class='grading-titles'><b>Student's name</b></div>
+		<div class='grading-titles'><b>Choose grade</b></div>
+		<div class='grading-titles'><b>Comment</b></div>
+		<div class='grading-titles '><b>Submit</b></div>
+		<div class='grading-titles'><b>Grade</b></div>
+		<div class='grading-titles'><b>Comment</b></div>
+
+		<% @cohort.students.each do |s| %>
+			<div class='grading-titles'><%= s.fname %> <%= s.lname %></div>
+				<div hidden><%= form_for [@cohort, @exam] do |f| %></div>
+			<div class='grading-titles'><%= f.select :grade, collection_select: @grades  %></div>
+			<div class='grading-titles'><%= f.text_area :comment %></div>
+			<div class='grading-titles'><%= f.submit "Grade", :class=> 'submit-button' %></div>
+				<div hidden><%= hidden_field_tag :student_id, s.id %></div>
+							<% end %>
+			<% @exams.each do |e| %>
 			<% if e.student_id == s.id %>
-				<td><%= e.grade %></td>
-				<td><%= e.comment %></td>
+				<div class='grading-titles'><%= e.grade %></div>
+				<div class='grading-titles'><%= e.comment %></div>
 			<% end %>
 		<% end %>
 	<% end %>
-	
-	</table>
-</div>	
-<br>
-<br>
-<br>
+	</div>
 
+
+
+</div>
