@@ -2,24 +2,29 @@
 <div class='wrapper'>
 	<div class='left'>
 		<div class='listing-name'><b>Credits:</b> <%= @cohort.credits %></div>
-		<div class='listing-name'><b>Course:</b> <%= @cohort.course.title %></div>
+		<div class='listing-name'><b>Course:</b> <a href="/departments/<%=@cohort.course.department.id %>/courses/<%= @cohort.course.id %>" > <%= @cohort.course.title %></a></div>
 				<% course = @cohort.course %>
-		<div class='listing-name'><b>Department:</b> <%= course.department.name %></div>
-		<div class='listing-name'><b>Instructor:</b> <%= @cohort.instructor.lname %></div>
+		<div class='listing-name'><b>Department:</b> <a href="/departments/<%= @cohort.course.department.id %>" > <%= course.department.name %> </a></div>
+		<div class='listing-name'><b>Instructor:</b><a href="/instructor/<%= @cohort.instructor.id %>"> <%= @cohort.instructor.lname %></a></div>
 		<div class='listing-name'><b>Dates:</b> <%= @cohort.starting_date.to_formatted_s(:long) %> - <%= @cohort.ending_date.to_formatted_s(:long) %></div>
 		<div class='listing-name'><b>Note:</b> <%= @cohort.comment %></div>
 	</div>
 
-	<div class='right'></div>
+	<div class='right'>
+		<h3 class="listing-name">List of current students:</h3>
+			<% @cohort.students.each_with_index do |s, index| %>
+		<div class='listing-name'><a href="/students/<%= s.id %>"><%= index + 1%>. <%= s.fname %> <%= s.lname %></a> </div>
+	<% end %>		
+	</div>
 
 
 
 
 </div>
 <% if @cohort.instructor.lname == current_instructor.lname %>
-	<a href="/cohorts/<%= @cohort.id%>/edit">Edit</a>
+	<a class='submit-button-link' href="/cohorts/<%= @cohort.id%>/edit">Edit</a>
 	<br>
-	<a href="/cohorts/<%= @cohort.id%>/exams/new">Grade Cohort</a>
+	<a class='submit-button-link' href="/cohorts/<%= @cohort.id%>/exams/new">Grade Cohort</a>
 <% end %>
 
 

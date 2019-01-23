@@ -4,7 +4,6 @@ def new
 	@exam = Exam.new
 	@cohort = Cohort.find(params[:cohort_id])
 	@exams = Exam.all
-	@grades = [2,3,4,5,6]
 end	
 
 def create
@@ -26,6 +25,7 @@ def edit
 	@cohort = Cohort.find(params[:cohort_id])
 	@exam = Exam.find(params[:id])
 end
+
 
 def update
 	@cohort = Cohort.find(params[:cohort_id])

@@ -1,0 +1,13 @@
+Edit for for Exam
+<div class='signing-title'><h3>Update <%= @exam.student.fname %> <%= @exam.student.lname %>'s grade </h3></div>
+
+
+<%= form_for [@cohort, @exam] do |f| %>
+<div class='signing-wrapper'>
+	<div class='field'><%= f.select :grade, collection_select: grades()  %></div>
+	<div class='field'><%= f.text_area :comment %></div>
+	<%= f.submit "Update grade", :class => 'submit-button-link' %>
+	<%= link_to 'Back', :back, :class => "submit-button-link whatever" %>
+</div>
+<% end %>
+
