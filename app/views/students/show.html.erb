@@ -1,38 +1,34 @@
 <h2 class='listing-title'>Hello <%= @student.fname %></h2>
 
-<div class='wrapper'>
-	<div class='left'>
 		<h3 class="listing-title">My current Cohorts</h3>
-		<% @student.cohorts.each do |c| %>
-			<table>
-			<tr>
-				<th>Name of Cohort</th>
-				<th>Course title</th>
-				<th>Department</th>
-				<th>Instructor</th>
-				<th>Grade</th>
-			</tr>
-			<td><%= c.name %></td>
-			<td><%= c.course.title %></td>
-			<td><%= c.course.department.name %></td>
-			<td><%= c.instructor.lname %></td>
-			<td>Not Graded</td>
-			<%= form_for @student, url: {action: "remove_cohort", controller: 'students'}, html: {method: 'delete'} do |f| %>
-				<%= hidden_field_tag :cohort_id, @student.cohorts.ids %>
-					<td><%= f.submit "Remove", :class => "submit-button" %></td>
-			<% end %>
-				
+<div class='wrapper-student-show'>	
+				<div class='student-titles'><b>Name of Cohort</b></div>
+				<div class='student-titles'><b>Course title</b></div>
+				<div class='student-titles'><b>Department</b></div>
+				<div class='student-titles'><b>Instructor</b></div>
+				<div class='student-titles'><b>Grade</b></div>
+				<div class='student-titles'><b>Remove Cohort</b></div>
+		
+		<% @student.cohorts.each do |c| %>			
+			<div class='student-titles'><%= c.name %></div>
+			<div class='student-titles'><%= c.course.title %></div>
+			<div class='student-titles'><%= c.course.department.name %></div>
+			<div class='student-titles'><%= c.instructor.lname %></div>
+			<div class='student-titles'><%= student_grade(c) %></div>
 			
-			<div class='horizontal-line'></div>
-			</table>
+			<div hidden><%= form_for @student, url: {action: "remove_cohort", controller: 'students'}, html: {method: 'delete'} do |f| %></div>
+			<div hidden><%= hidden_field_tag :cohort_id, @student.cohorts.ids %></div>
+					<div class='student-titles'><%= f.submit "Remove", :class => "submit-button" %></div>
+			<% end %>													
 		<% end %>
-	</div>
-	<div class='right'>
-		<h3 class="listing-title">My current grades: </h3>
-	</div>
+	
 </div>
 
 <div class='horizontal-line'></div>
+
+
+
+
 
 <div class='cohorts-wrapper'>
 	<% @cohorts.each do |c| %>

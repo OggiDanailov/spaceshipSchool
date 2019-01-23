@@ -1,8 +1,12 @@
 class StudentsController < ApplicationController
+
+	before_action :authenticate_student!
   
   def show
-	  @student = current_student
-	  @student_cohorts = @student.cohorts
+	  @student = Student.find(params[:id])
+	  if current_student
+	  	@student_cohorts = @student.cohorts
+	  end
 	  @cohorts = Cohort.all
 	  @exam = Exam.new
   end

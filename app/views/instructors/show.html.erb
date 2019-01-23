@@ -4,7 +4,7 @@
 			<div class='listing-name'><h3>My cohorts:</h3><br></div>
 		<% @instructor.cohorts.each_with_index do |c, index| %>
 				<div class='listing-name'><a href="/cohorts/<%= c.id %>"> <%=c.name %></a></div>
-				<div class='listing-name'>Dates: <%= c.starting_date %> - <%= c.ending_date %></div>
+				<div class='listing-name'>Dates: <%= c.starting_date.to_formatted_s(:long) %> - <%= c.ending_date.to_formatted_s(:long) %></div>
 				<div class='listing-name'>Description: <%= c.comment %></div>
 				<div class='horizontal-line'></div>
 			

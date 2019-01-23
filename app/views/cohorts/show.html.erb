@@ -13,7 +13,7 @@
 	<div class='right'>
 		<h3 class="listing-name">List of current students:</h3>
 			<% @cohort.students.each_with_index do |s, index| %>
-		<div class='listing-name'><a href="/students/<%= s.id %>"><%= index + 1%>. <%= s.fname %> <%= s.lname %></a> </div>
+		<div class='listing-name'><a href="/student/<%= s.id %>"><%= index + 1%>. <%= s.fname %> <%= s.lname %></a> </div>
 	<% end %>		
 	</div>
 
