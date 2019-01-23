@@ -17,7 +17,7 @@
 			<div class='student-titles'><%= student_grade(c) %></div>
 			
 			<div hidden><%= form_for @student, url: {action: "remove_cohort", controller: 'students'}, html: {method: 'delete'} do |f| %></div>
-			<div hidden><%= hidden_field_tag :cohort_id, @student.cohorts.ids %></div>
+			<div hidden><%= hidden_field_tag :cohort_id, @student.cohorts.ids %></div>			
 					<div class='student-titles'><%= f.submit "Remove", :class => "submit-button" %></div>
 			<% end %>													
 		<% end %>
