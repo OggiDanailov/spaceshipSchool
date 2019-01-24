@@ -14,11 +14,13 @@
 			<div class='student-titles'><%= c.course.title %></div>
 			<div class='student-titles'><%= c.course.department.name %></div>
 			<div class='student-titles'><%= c.instructor.lname %></div>
-			<div class='student-titles'><%= student_grade(c) %></div>
+			<div class='student-titles grade-element'><%= student_grade(c) %></div>
 			
 			<div hidden><%= form_for @student, url: {action: "remove_cohort", controller: 'students'}, html: {method: 'delete'} do |f| %></div>
-			<div hidden><%= hidden_field_tag :cohort_id, @student.cohorts.ids %></div>			
-					<div class='student-titles'><%= f.submit "Remove", :class => "submit-button" %></div>
+			<div hidden><%= hidden_field_tag :cohort_id, @student.cohorts.ids %></div>
+							
+					<div class='student-titles grade-button'><%= f.submit "Remove", :class => "submit-button" %></div>
+				
 			<% end %>													
 		<% end %>
 	
