@@ -1,4 +1,6 @@
-window.onload = function(){
+$( document ).on('turbolinks:load', function() {
+
+
 	let gradeElement = document.getElementsByClassName("grade-element")
 	let gradeButton = document.getElementsByClassName("grade-button")
 
@@ -8,4 +10,7 @@ window.onload = function(){
 		}
 
 	}
-}
+})
+
+
+
