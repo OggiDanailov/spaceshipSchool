@@ -16,17 +16,16 @@
 		<div class='listing-name'><a href="/student/<%= s.id %>"><%= index + 1%>. <%= s.fname %> <%= s.lname %></a> </div>
 	<% end %>		
 	</div>
-
-
-
-
 </div>
-<% if @cohort.instructor.lname == current_instructor.lname %>
-	<a class='submit-button-link' href="/cohorts/<%= @cohort.id%>/edit">Edit</a>
-	<br>
-	<a class='submit-button-link' href="/cohorts/<%= @cohort.id%>/exams/new">Grade Cohort</a>
-<% end %>
 
+<% if current_instructor %>
+
+	<% if @cohort.instructor.lname == current_instructor.lname %>
+		<a class='submit-button-link' href="/cohorts/<%= @cohort.id%>/edit">Edit</a>
+		<br>
+		<a class='submit-button-link' href="/cohorts/<%= @cohort.id%>/exams/new">Grade Cohort</a>
+	<% end %>
+<% end %>
 
 
 

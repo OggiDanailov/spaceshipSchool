@@ -1,0 +1,8 @@
+<% @cohort.exams.each do |e| %>
+<div>
+	<div>Grade: <%= e.grade %></div>
+	<div>Name: <%= e.cohort.name %></div>
+	<div>Name: <%= e.student.fname %> <%=e.student.lname %></div>
+	<div class='horizontal-line'></div>
+</div>
+<% end %> 

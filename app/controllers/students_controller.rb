@@ -4,9 +4,6 @@ class StudentsController < ApplicationController
   
   def show
 	  @student = Student.find(params[:id])
-	  if current_student
-	  	@student_cohorts = @student.cohorts
-	  end
 	  @cohorts = Cohort.all
 	  @exam = Exam.new
   end
