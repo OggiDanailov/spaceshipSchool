@@ -15,14 +15,10 @@ def create
 	@exam = @cohort.exams.new(exam_params)
 	@exam.student_id = params[:student_id]
 	@exam.instructor_id = current_instructor.id
-	@graded = Exam.find_by(student_id: params[:student_id])
-	puts "this is cohort #{@cohort.id}"
-	puts "this is exam #{@exam.id}"
-	puts "this is exam_student ID #{@exam.student_id}"
-	puts "this is the instructor #{current_instructor.id}"
-	puts "this is graded #{@graded.id}"
-	if(@graded.cohort_id != @cohort.id)
-		@exam.save
+	exam_on_cohort = Exam.where(cohort_id: @cohort.id)
+	student_on_cohort = exam_on_cohort.where(student_id: params[:student_id])
+	if student_on_cohort == []
+		 @exam.save
 		redirect_to :controller => 'exams', :action => 'new'
 	else 
 		flash[:notice] = "You have already graded this student"

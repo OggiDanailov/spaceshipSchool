@@ -1,4 +1,5 @@
 <h2 class='listing-title'>Grade cohort: <b><%=@cohort.name %></b></h2>
+<body id='instructor-grading-form'>
 <h3 class='listing-name'>Course: <%= @cohort.course.title %></h3>
 <h3 class='listing-name'>Department: <%= @cohort.course.department.name %></h3>
 <h3 class='listing-name'>Instructor: <%=@cohort.instructor.lname %></h3>
@@ -18,13 +19,16 @@
 
 		<% @cohort.students.each do |s| %>
 			<div class='grading-titles'><%= s.fname %> <%= s.lname %></div>
-				<div hidden><%= form_for [@cohort, @exam] do |f| %></div>
-			<div class='grading-titles'><%= f.select :grade, collection_select: grades()  %></div>
-			<div class='grading-titles'><%= f.text_area :comment %></div>
+
+				<div hidden><%= form_for [@cohort, @exam], html: {class: "form-grading"}, :remote => true do |f| %></div>
+			<div class='grading-titles' ><%= f.select :grade, collection_select: grades() %></div>
+			<div class='grading-titles'"><%= f.text_area :comment %></div>
 				<div hidden><%= hidden_field_tag :student_id, s.id %></div>
+				<div hidden><%= hidden_field_tag :authenticity_token, form_authenticity_token %></div>
 				
-			<div class='grading-titles'><%= f.submit "Grade", :class=> 'submit-button' %></div>
+			<div class='grading-titles' onclick='myFunction()'><%= f.submit "Grade", :class=> 'submit-button' %></div>
 							<% end %>
+			
 
 			<% if @cohort.exams == [] %>				
 				<div class='grading-titles'><%= 'not graded' %></div>
@@ -32,8 +36,10 @@
 			<% else %>
 			<% @cohort.exams.each do |e| %>
 				<% if student_teacher_grade(s, @cohort, e) %>
+
 					<div class='grading-titles'><%=link_to e.grade, edit_cohort_exam_path(@cohort, e) %></div>
 					<div class='grading-titles'><%= e.comment %></div>
+
 				<% end %>
 			<% end %>	
 
@@ -42,3 +48,4 @@
 	</div>
 
 </div>
+</body>
