@@ -1,19 +1,33 @@
 .grading-table {
-	// border: 5px solid orange;
-	width: 95%;
+	border: 3px solid teal;
+	width: 97%;
 	padding: 5px;
 	margin: 10px auto;
-	display: grid;
-	grid-template-columns: 1fr;
+	// display: grid;
+	// grid-template-columns: 0.7fr 1.3fr;
+	overflow: hidden;
 	
 }
 
 
 .grading-table-left {
 	// grid-gap: 5px;
+	width: 50%;
+	float: left;
 	display: grid;
-	grid-template-columns: .2fr .05fr  .2fr .1fr .05fr .5fr;
-	border: 2px solid teal;
+	grid-template-columns: 0.2fr 1.8fr;
+	// border: 2px solid salmon;
+}
+
+.grading-table-right {
+	width: 50%;
+	float: left;
+	display: grid;
+	grid-template-columns: 0.4fr 0.1fr 0.6fr;
+	grid-auto-rows: minmax(100px, auto);
+	// min-height: 100px;
+	// border: 2px solid green;
+	// border: 2px solid salmon; 
 }
 
 .grading-titles {
@@ -23,7 +37,11 @@
 	padding: 5px;
 	border: 1px solid teal;
 	// text-align: center;
-	margin: 5px;
+	margin: 15px 5px;
+	border-bottom: 2px solid teal;
+}
+.text-area {
+	width: 80%;
 }
 
 .grading-titles a {
@@ -35,7 +53,16 @@
 }
 
 
+@media screen and (max-width: 768px) {
+	.grading-table {
+		display: grid;
+	}
 
+	.grading-table-left, .grading-table-right {
+		float: none;
+		width: 100%;
+	}
+}
 
 
 

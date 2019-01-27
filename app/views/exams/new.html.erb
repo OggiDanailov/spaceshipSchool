@@ -10,42 +10,38 @@
 <div class='grading-table'>
 
 	<div class='grading-table-left'>
-		<div class='grading-titles'><b>1. Student's name</b></div>
-		<div class='grading-titles'><b>2. Choose grade</b></div>
-		<div class='grading-titles'><b>3. Comment</b></div>
-		<div class='grading-titles '><b>4. Submit</b></div>
-		<div class='grading-titles'><b>5. Grade</b></div>
-		<div class='grading-titles'><b>6. Comment</b></div>
+		<div class='grading-titles'><b>Student's name</b></div>
+		<div class='grading-titles'><b>Choose grade</b></div>
 
 		<% @cohort.students.each do |s| %>
 			<div class='grading-titles'><%= s.fname %> <%= s.lname %></div>
+			<%= form_for [@cohort, @exam], html: {class: "form-grading"} do |f| %>
+				<div class='grading-titles'><%= f.select :grade, collection_select: grades() %></div>
+				<div class='grading-titles'><%= f.text_area :comment, rows: 6, :class => 'text-area' %></div>
+					<div hidden><%= hidden_field_tag :student_id, s.id %></div>
+					
+				<div class='grading-titles'><%= f.submit "Grade", :class=> 'submit-button' %></div>
+			<% end %>
+		<% end %>
+	</div> <!-- end of grading-table-left -->
 
-				<div hidden><%= form_for [@cohort, @exam], html: {class: "form-grading"}, :remote => true do |f| %></div>
-			<div class='grading-titles' ><%= f.select :grade, collection_select: grades() %></div>
-			<div class='grading-titles'"><%= f.text_area :comment %></div>
-				<div hidden><%= hidden_field_tag :student_id, s.id %></div>
-				<div hidden><%= hidden_field_tag :authenticity_token, form_authenticity_token %></div>
-				
-			<div class='grading-titles' onclick='myFunction()'><%= f.submit "Grade", :class=> 'submit-button' %></div>
-							<% end %>
-			
+	<div class='grading-table-right'>
+		<div class='grading-titles'><b>Student's name</b></div>
+		<div class='grading-titles'><b>Grade</b></div>
+		<div class='grading-titles'><b>Comment</b></div>
 
-			<% if @cohort.exams == [] %>				
-				<div class='grading-titles'><%= 'not graded' %></div>
-				<div class='grading-titles'><%= 'not graded' %></div>
-			<% else %>
+		<% @cohort.students.each do |s| %>
 			<% @cohort.exams.each do |e| %>
-				<% if student_teacher_grade(s, @cohort, e) %>
-
+				<% if e.student_id == s.id %>
+				<div class='grading-titles'><%= s.fname %> <%= s.lname %></div>	
 					<div class='grading-titles'><%=link_to e.grade, edit_cohort_exam_path(@cohort, e) %></div>
 					<div class='grading-titles'><%= e.comment %></div>
-
 				<% end %>
-			<% end %>	
-
-		<% end %>
-	<% end %>
-	</div>
+			<% end %>
+		<% end %>	
+		
+	</div> <!-- end of grading-table-right -->
+	
 
 </div>
 </body>

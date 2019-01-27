@@ -6,4 +6,6 @@ $(document).ready(function(){
 		document.getElementsByClassName("form-grading")[0].submit()
 	}
 
+
+
 })
