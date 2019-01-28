@@ -4,18 +4,18 @@
 
 		<h3 class="listing-title">My current Cohorts</h3>
 <div class='wrapper-student-show'>	
-				<div class='student-titles'><b>1. Name of Cohort</b></div>
-				<div class='student-titles'><b>2. Cohort ID</b></div>
-				<div class='student-titles'><b>3. Comment</b></div>
-				<div class='student-titles'><b>4. Instructor</b></div>
-				<div class='student-titles'><b>5. Grade</b></div>
-				<div class='student-titles'><b>6. Remove Cohort</b></div>
+				<div class='student-titles'><b> Name of Cohort</b></div>
+				<div class='student-titles'><b> Course</b></div>
+				<div class='student-titles'><b> Instructor</b></div>
+				<div class='student-titles'><b> Comment</b></div>
+				<div class='student-titles'><b> Grade</b></div>
+				<div class='student-titles'><b> Remove Cohort</b></div>
 		
 		<% @student.cohorts.each do |c| %>		
 			<div class='student-titles'><%= c.name %></div>
-			<div class='student-titles'><%= c.id %></div>
-			<div class='student-titles'><%= student_grade_comment(c) %></div>
+			<div class='student-titles'><%= c.course.title %></div>
 			<div class='student-titles'><%= c.instructor.lname %></div>
+			<div class='student-titles'><%= student_grade_comment(c) %></div>
 			<div class='student-titles grade-element'><%= student_grade(c, @student) %></div>
 			
 			<div hidden><%= form_for @student, url: {action: "remove_cohort", controller: 'students'}, html: {method: 'delete'} do |f| %></div>
@@ -30,9 +30,7 @@
 
 <div class='horizontal-line'></div>
 
-
-
-
+	<h3 class='listing-title'>Current cohorts:</h3>
 
 <div class='cohorts-wrapper'>
 	<% @cohorts.each do |c| %>
@@ -40,7 +38,7 @@
 	    <div class='main-list'><b>Cohort name:</b> <%= c.name  %></div>
 	    <div class='main-list'><b>Course name:</b> <%= c.course.title %></div>
 	    <div class='main-list'><b>Instructor:</b> <%=c.instructor.lname %></div>
-	    <div class='main-list'><b>Dates:</b> <%=c.starting_date.to_formatted_s(:long) %> - <%= c.ending_date.to_formatted_s(:long) %></div>
+	    <div class='main-list penultime'><b>Dates:</b> <%=c.starting_date.to_formatted_s(:long) %> - <%= c.ending_date.to_formatted_s(:long) %></div>
 
 
 		<%= form_for @student, url: { action: 'assign', controller: 'students' }, html: {method: 'post'} do |r| %>

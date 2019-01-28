@@ -1,7 +1,8 @@
 .wrapper-student-show {
 	width: 90%;
 	margin: 0 auto;
-	border: 4px solid orange;
+	border: 2px solid teal;
+	padding: 5px;
 	display: grid;
 	grid-template-columns: repeat(6, 1fr)
 }
@@ -14,3 +15,45 @@
 	margin: 5px;
 	padding: 3px;
 }
+
+
+.cohorts-wrapper {
+	width: 90%;
+	margin: 10px auto;
+	border: 2px solid teal;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+}
+
+.cohorts {
+	padding: 5px;
+	margin: 10px;
+	border: 2px solid teal;
+	width: 90%;
+	position: relative;
+}
+
+.main-list {
+	margin-bottom: 12px;
+}
+
+.penultime {
+	margin-bottom: 60px;
+}
+
+.cohorts div:last-child {
+	position: absolute;
+  	right: 0;
+  	bottom: 5px;
+  	left: 0;
+}
+
+
+
+
+@media screen and (max-width: 768px) {
+	.wrapper-student-show {
+
+	}
+}
+
