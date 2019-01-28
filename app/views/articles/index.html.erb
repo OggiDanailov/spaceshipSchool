@@ -1,9 +1,18 @@
-<h2>List of all Articles</h2>
+<h2 class='listing-title'>Articles: </h2>
+<div class='wrapper'>
+
+	<div class='left'>
+		<% @articles.each do |a| %>
+			<h2 class='listing-name'><a href='/articles/<%=a.id %>'><%= a.title %></a></h2>
+		<div class='listing-name'><a href="/instructor/<%= a.instructor.id %>">Instructor/Author: <%= a.instructor.lname %></a></div>
+		<div class='listing-name'><a href='/departments/<%=a.course.department.id%>/courses/<%=a.course.id %>'>Course: <%= a.course.title %></a></div>
+		
+			<div class='listing-text'><%= raw(a.content.first(350)) %></div>
+	</div>
 
 
-<% @articles.each do |a| %>
-	<div>Title: <%= a.title %></div>
-	<div>Content: <%= raw(a.content) %></div>
-	<div>Instructor: <%= a.instructor.lname %></div>
-	<div>Course: <%= a.course.title %></div>
-<% end %>
+		
+	
+	<% end %>
+
+</div>

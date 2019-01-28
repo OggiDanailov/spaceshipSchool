@@ -16,7 +16,10 @@ class ArticlesController < ApplicationController
   	else
   		render new_article_path
   	end
+  end
 
+  def show
+  	@article = Article.find(params[:id])
   end
 
 
