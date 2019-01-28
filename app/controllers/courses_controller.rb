@@ -1,4 +1,5 @@
 class CoursesController < ApplicationController
+	before_action :authenticate_admin!, :except => [:index, :show]
 def all_courses
 		@courses = Course.all
 end

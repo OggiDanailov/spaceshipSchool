@@ -1,2 +1,8 @@
-<h1>Articles#new</h1>
-<p>Find me in app/views/articles/new.html.erb</p>
+<h3>Create new article: </h3>
+
+<%= form_for @article do |f| %>
+<div>Title: <%= f.text_area :title %></div>
+<div class="field cktext-form"> <%= f.cktext_area :content, rows: 10 %></div>
+<div class='field'>Options for course: <%= f.select :course_id, options_from_collection_for_select(Course.all, "id", "title") %></div>
+<div><%= f.submit %></div>
+<% end %>

@@ -1,2 +1,9 @@
-<h1>Articles#index</h1>
-<p>Find me in app/views/articles/index.html.erb</p>
+<h2>List of all Articles</h2>
+
+
+<% @articles.each do |a| %>
+	<div>Title: <%= a.title %></div>
+	<div>Content: <%= raw(a.content) %></div>
+	<div>Instructor: <%= a.instructor.lname %></div>
+	<div>Course: <%= a.course.title %></div>
+<% end %>

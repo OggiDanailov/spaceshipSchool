@@ -10,6 +10,7 @@
 	    </button>
 	    <div class="dropdown-content">
 	      <%= link_to 'My Profile', instructor_path(current_instructor) %>
+	      <%= link_to "New Article", new_article_path %>
 	      <%= link_to 'sign out as instructor', destroy_instructor_session_path, method: :delete %>
 	    </div>
 	  </div> 
