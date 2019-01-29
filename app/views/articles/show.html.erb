@@ -4,6 +4,35 @@
 <div class='listing-text'><%= raw(@article.content) %></div>
 </div>
 
-<% if @article.instructor_id == current_instructor.id %>
-	<%= link_to "Edit article", edit_article_path(@article) %>
+<% if current_instructor %>
+	<% if @article.instructor_id == current_instructor.id %>
+		<%= link_to "Edit article", edit_article_path(@article) %>
+	<% end %>
 <% end %>
+
+<div class='horizontal-line'></div>
+
+<h2 class='listing-title'> Comments on this article: </h2>
+
+<div class='comment-field'>
+	<% @article.comments.each do |c| %>
+		<div class='field-comment'><%= c.content %>
+			<div><%= c.created_at.to_formatted_s(:long) %></div>
+			<% if c.instructor_id != nil %>
+				<div>Instructor <%= c.instructor.lname %></div>
+			<% elsif c.student_id != nil %>
+				<div><%= c.student.fname %></div>
+			<% end %>
+		</div>
+	<% end %>
+</div>
+
+<h2 class='listing-title'> Create comment: </h2>
+
+<%= form_with(model: [@article, @article.comments.build], local: true)   do |f| %>
+<div class='signing-wrapper'>
+	<div class='field'><%= f.text_field :content %></div>
+	<br>
+	<div><%= f.submit class: 'submit-button' %></div>
+</div>
+<% end %> 

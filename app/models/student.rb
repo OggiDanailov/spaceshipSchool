@@ -1,5 +1,5 @@
 class Student < ApplicationRecord
-	has_many :comments
+	has_many :comments, :dependent => :delete_all
 	has_many :exams, :dependent => :delete_all
 	has_and_belongs_to_many :cohorts, optional: true
 

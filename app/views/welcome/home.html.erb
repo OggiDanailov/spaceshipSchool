@@ -8,12 +8,19 @@
 			<div class='listing-name'><a href="/instructor/<%=i.id %>"><%= i.fname%> <%= i.lname%></a></div>
 			<div class='listing-name'><%= i.email %></div>
 				<% i.cohorts.each do |c| %>
-				Cohorts:
-			<div class='listing-name'><a href="/cohorts/<%= c.id%>"><%= c.name %></a></div>
+				
+			<div class='listing-name'>Current cohorts: <a href="/cohorts/<%= c.id%>"><%= c.name %></a></div>
 
 			<div class='listing-name'>Course:<a href="/departments/<%= c.course.department.id%>/courses/<%= c.course.id%>"> <%= c.course.title %></a></div>
 				<% end %>
 			<div class='horizontal-line'></div>
 		<% end %>
+	</div>
+
+	<div class='right'>
+			<div class='listing-title'>Departments</div>
+		<% @depratments.each do |d| %>
+			<div><%= d.name %></div>
+		<% end %> 
 	</div>
 </div>
