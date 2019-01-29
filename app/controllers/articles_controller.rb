@@ -19,12 +19,37 @@ class ArticlesController < ApplicationController
   end
 
   def show
-  	@article = Article.find(params[:id])
+  	find_article()
+  end
+
+  def edit 
+  	find_article()
+  end
+
+  def update
+  	article = find_article()
+  	article.instructor_id = current_instructor.id
+  	if article.update(article_params)
+  		redirect_to article
+  	else
+  		render "/articles/#{article.id}/edit"
+  	end
+  end
+
+  def destroy
+	article = find_article()
+	if article.destroy
+		redirect_to '/articles'
+	end
   end
 
 
 
   private
+
+  def find_article
+	@article = Article.find(params[:id])
+  end
 
   def article_params
   	params.require(:article).permit(:instructor_id, :course_id, :title, :content)
