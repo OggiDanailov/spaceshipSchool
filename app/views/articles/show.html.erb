@@ -1,7 +1,8 @@
+<div class='wrapper-article'>
 <h2 class='listing-title'><%=@article.title %></h2>
 
 <div class='listing-text'><%= raw(@article.content) %></div>
-
+</div>
 
 <% if @article.instructor_id == current_instructor.id %>
 	<%= link_to "Edit article", edit_article_path(@article) %>

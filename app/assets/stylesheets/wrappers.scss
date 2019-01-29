@@ -9,7 +9,19 @@
 }
 
 .wrapper-articles {
+	width: 90%;
+	margin: 10px auto;
+	border: 2px solid teal;
+}
 
+.wrapper-articles a {
+	font-size: 20px;
+}
+
+.wrapper-article {
+	width: 90%;
+	margin: 10px auto;
+	border: 2px solid teal;
 }
 .left, .right {
 	border: 2px solid teal;

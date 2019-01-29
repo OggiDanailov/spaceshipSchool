@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
 	before_action :authenticate_instructor!, :except => [:index, :show]
+	
   def index
   	@articles = Article.all
   end
