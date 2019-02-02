@@ -1,18 +1,15 @@
 
-
-.navbar-toggle {
-    /*position: absolute;*/
-    // cursor: pointer;
-    // font-size: 24px;
-    // margin: 0 auto;
-    /*border: 1px solid purple;*/
-}
-
 .burger {
-    border: 1px solid purple;
+    border: 1px solid white;
     /*position: relative;*/
-    color: teal;
+    color: white;
+    margin: 5px;
+    background-color: black;
     padding: 20px;
+    cursor: pointer;
+}
+.burger:hover {
+    background-color: teal;
 }
 
 .main-nav {
@@ -34,6 +31,10 @@
 
 .active-home {
     display: block;
+}
+
+.cohort-course {
+    border: 2px solid teal;
 }
 
 

@@ -3,6 +3,7 @@ class WelcomeController < ApplicationController
   	@instructors = Instructor.all
   	@courses = Course.all
   	@depratments = Department.all
+  	@articles = Article.all
   end
 
   def about

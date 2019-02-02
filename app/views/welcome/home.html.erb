@@ -3,23 +3,27 @@
 
 <div class='wrapper-home'>
 	<div class='left'>
-		<div class='listing-title'>Our Instructors</div>
+		<h2 class='listing-title'>Our Instructors</h2>
 		<% @instructors.each do |i| %>
-			<div class='listing-name'><a href="/instructor/<%=i.id %>"><%= i.fname%> <%= i.lname%></a></div>
+
+			<div class='burger'><%= i.fname%> <%= i.lname%></div>
+		<div class="main-nav" id="js-menu">
 			<div class='listing-name'><%= i.email %></div>
+
 				<% i.cohorts.each do |c| %>
-				
-			<div class='listing-name'>Current cohorts: <a href="/cohorts/<%= c.id%>"><%= c.name %></a></div>
+		<div class='cohort-course'>
+			<div class='listing-name'>Cohort: <a href="/cohorts/<%= c.id%>"><%= c.name %></a></div>
 
 			<div class='listing-name'>Course:<a href="/departments/<%= c.course.department.id%>/courses/<%= c.course.id%>"> <%= c.course.title %></a></div>
+		</div>		
 				<% end %>
-			<div class='horizontal-line'></div>
+		</div>	
 		<% end %>
 	</div>
 
-	<div class='right'>
-				<div class='listing-title'>Departments</div>
-				
+	<div class='center'>
+				<h2 class='listing-title'>Departments</h2>
+
 		<% @depratments.each do |d| %>
 			<!-- <div class="navbar-toggle" id="js-navbar-toggle"> -->
 				<div class="burger"><%= d.name %></div>
@@ -27,11 +31,25 @@
 
 			<div class="main-nav" id="js-menu">
 				<% d.courses.each do |c| %>
-					<div class="nav-links"><%= c.title %></div>
+					<div class="nav-links listing-name"><a href="departments/<%=d.id %>/courses/<%=c.id %>"><%= c.title %></a></div>
 				<% end %>				
 			</div>
-			
 		<% end %> 
+	</div> <!-- end of center side -->
 
-	</div> <!-- end of right side -->
+	<div class='right'>
+		<h2 class='listing-title'>Articles by course</h2>
+		<% @courses.each do |c| %>
+			<div class='burger'><%= c.title %></div>
+			<div class="main-nav" id="js-menu">
+				<% c.articles.each do |a| %>
+					<div class="nav-links listing-name"><a href="articles/<%=a.id %>"><%= a.title %></a></div>
+					<div class='listing-name'>Prof. <%= a.instructor.lname %></div>
+				<% end %>				
+			</div>
+
+
+		<% end %>
+	</div>
+
 </div>
