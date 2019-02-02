@@ -38,6 +38,16 @@
 	font-family: Fontana;
 }
 
+.wrapper-about {
+	display: grid;
+	width: 70%;
+	margin: 20px auto;
+	font-size: 1em;
+	font-family: Fontana;
+	border: 2px solid teal;
+	padding: 20px;
+}
+
 @media screen and (max-width: 768px) {
 	.wrapper-home {
 		grid-template-columns: 1fr;

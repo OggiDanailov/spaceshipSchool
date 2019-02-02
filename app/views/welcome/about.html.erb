@@ -1,2 +1,50 @@
-<h1>Welcome#about</h1>
-<p>Find me in app/views/welcome/about.html.erb</p>
+<h2 class='listing-title'>About Spaceship school</h2>
+
+<div class='wrapper-about'>
+	<p>This project was created for the students of NYCDA (unfortunately no longer around) but it is also
+	open to anyone who is interested in learning Ruby on Rails</p>
+	<br>
+<p>This is a virtual school project that explores the use some core concepts in Rails as:
+<br>
+-  illustrates the  multi-user roles through <b>gem Devise</b> (admin, instructor and student)</p>
+<p>- illustrates relational DB in <b>SQL</b> (the project currently has admin, instructor, student, cohort, course, article, comment and department)</p>
+
+<p>- illustrates join tables - in this case weak join table between cohorts and students</p>
+<br>
+
+<p>You can sign up as admin, instructor or student.</p>
+ <p>- admin can do anything on the site plus admin is the only one who can create Departments and assign courses to them</p>
+ 
+<p>- instructor can create cohorts and articles; also, he/she can comment on articles; he/she can assign cohorts to courses The instructor also can grade students.</p>
+<br>
+<p>Example instructor:
+	<br>
+-  michael@abv.bg
+- 123456
+</p>
+<br>
+<p>- Students can comment on articles and student can join cohorts and also remove cohorts. Once a cohort has been graded students cannot remove it</p>
+<br>
+<p>Example student:
+	<br>
+-  rad@abv.bg
+- 123456
+</p>
+<br>
+
+<p>This project has been deployed on <b>Heroku</b> and <b>ECMA6</b> has been used. In order to avoid Heroku from crashing when using ES6 syntax (in this case 'let' keyword) you should:</p>
+
+
+	<p>replace in config/environments/production</p>
+
+<p><i>config.assets.js_compressor = :uglifier</i></p>
+<p>with</p>
+<p><i>config.assets.js_compressor = Uglifier.new(harmony: true)</i>
+</p>
+<br>
+<p>In order to start the project you need to have Rails installed on your computer. You have to run 'bundle install' in the home directory and them 'rake db:migrate' in order to migrate the DB on your local machine. </p>
+<br>
+<p>Link to 
+	<a href="https://github.com/OggiDanailov/spaceshipSchool">GitHub repository</a>
+</p>
+</div>
