@@ -38,3 +38,9 @@
 	font-family: Fontana;
 }
 
+@media screen and (max-width: 768px) {
+	.wrapper-home {
+		grid-template-columns: 1fr;
+	}
+}
+
