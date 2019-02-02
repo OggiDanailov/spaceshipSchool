@@ -8,3 +8,15 @@ function myFunction() {
   }
 }
 
+
+$(document).ready(function(){
+var burger = document.getElementsByClassName('burger')
+var mainNav = document.getElementsByClassName('main-nav')
+
+	for(let i = 0;i<burger.length;i++){
+		burger[i].addEventListener('click', function(){
+			mainNav[i].classList.toggle('active-home')
+		})
+	}
+
+})

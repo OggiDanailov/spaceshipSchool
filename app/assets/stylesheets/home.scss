@@ -1,0 +1,43 @@
+
+
+.navbar-toggle {
+    /*position: absolute;*/
+    // cursor: pointer;
+    // font-size: 24px;
+    // margin: 0 auto;
+    /*border: 1px solid purple;*/
+}
+
+.burger {
+    border: 1px solid purple;
+    /*position: relative;*/
+    color: teal;
+    padding: 20px;
+}
+
+.main-nav {
+    list-style-type: none;
+    display: none;
+}
+
+.main-nav div {
+    margin: 15px;
+}
+
+.nav-links {
+    text-decoration: none;
+    color: red;
+    display: block;
+}
+
+
+
+.active-home {
+    display: block;
+}
+
+
+
+
+
+       

@@ -18,9 +18,20 @@
 	</div>
 
 	<div class='right'>
-			<div class='listing-title'>Departments</div>
+				<div class='listing-title'>Departments</div>
+				
 		<% @depratments.each do |d| %>
-			<div><%= d.name %></div>
+			<!-- <div class="navbar-toggle" id="js-navbar-toggle"> -->
+				<div class="burger"><%= d.name %></div>
+			<!-- </div> -->	
+
+			<div class="main-nav" id="js-menu">
+				<% d.courses.each do |c| %>
+					<div class="nav-links"><%= c.title %></div>
+				<% end %>				
+			</div>
+			
 		<% end %> 
-	</div>
+
+	</div> <!-- end of right side -->
 </div>
