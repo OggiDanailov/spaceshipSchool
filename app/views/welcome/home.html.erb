@@ -11,7 +11,7 @@
 		
 				<% i.cohorts.each do |c| %>
 		<div class='cohort-course'>
-			<div class='listing-name'>Cohort: <%= link_to c.name, cohort_path(c.id) %></div>
+			
 
 			<div class='listing-name'>Course: <%= link_to c.course.title, department_course_path(c.course.department.id, c.course.id) %></div>
 
