@@ -9,7 +9,13 @@
 			<div class="main-nav" id="js-menu">
 				<div class='listing-name'><%= i.email %></div>
 		
-				
+				<% i.cohorts.each do |c| %>
+		<div class='cohort-course'>
+			<div class='listing-name'>Cohort: <a href="/cohorts/<%=c.id%>"><%= c.name %></a></div>
+
+			<div class='listing-name'>Course:<a href="/departments/<%=c.course.department.id%>/courses/<%=c.course.id%>"> <%= c.course.title %></a></div>
+		</div>		
+				<% end %>
 		</div>	
 		<% end %>
 	</div>
