@@ -14,7 +14,7 @@
 		<h3 class='listing-title'>Courses with this Department</h3>
 		<% @department.courses.each do |c| %>
 			<div class='listing-name'><a href="/departments/<%=@department.id %>/courses/<%= c.id%>"><b><%= c.title %></b></a></div>
-			<div class='listing-text'>Content: <%= (c.content).truncate(140) %></div>
+			<div class='listing-text'>Content: <%= raw(c.content.first(350)) %></div>
 			<div class='listing-text'> Description: <%= c.description  %></div>
 			<div class='horizontal-line'></div>
 		<% end %>

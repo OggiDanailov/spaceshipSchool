@@ -4,12 +4,11 @@
 <div class='wrapper-home'>
 	<div class='left'>
 		<h2 class='listing-title'>Our Instructors</h2>
-		<% if @instructor_signed_in? %>
 			<% @instructors.each do |i| %>
 				<div class='burger'><%= i.fname%> <%= i.lname%></div>
 			<div class="main-nav" id="js-menu">
 				<div class='listing-name'><%= i.email %></div>
-		<% end %>
+		
 				<% i.cohorts.each do |c| %>
 		<div class='cohort-course'>
 			<div class='listing-name'>Cohort: <a href="/cohorts/<%= c.id%>"><%= c.name %></a></div>
